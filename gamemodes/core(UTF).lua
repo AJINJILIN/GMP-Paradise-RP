@@ -1,7 +1,7 @@
 --- Copyright 2012 GMPA-Paradise
 -- Author & Contributors: QCherry, VOID
 
--- Кто возьмет это и назовет ГМ как "Shako engine", у того мать сдохнет
+-- РљС‚Рѕ РІРѕР·СЊРјРµС‚ СЌС‚Рѕ Рё РЅР°Р·РѕРІРµС‚ Р“Рњ РєР°Рє "Shako engine", Сѓ С‚РѕРіРѕ РјР°С‚СЊ СЃРґРѕС…РЅРµС‚
 
 local version = "0.2"
 local servername = "GMP Paradise RP"
@@ -12,8 +12,8 @@ local MAX_PLAYERS = GetMaxPlayers();
 local MaxPlayers = 100;
 local Player = {};
 
-local _badwords = {"?","1","2","3","4","5","6","7","8","9","0"," ","Диего","Мильтен","Ларес","Ксардас","Xardas","Diego","Горн","Лестер","Lester","Lee","Ли","Gorn","Сатурас","Saturas","Milten"}
--- В лаунчере с кириллицей беда, поэтому пока что кикаем всех со знаком вопроса вместо ника. + убираем циферки и всяких Ксардасов, тут все таки ЕРПЕ.
+local _badwords = {"?","1","2","3","4","5","6","7","8","9","0"," ","Р”РёРµРіРѕ","РњРёР»СЊС‚РµРЅ","Р›Р°СЂРµСЃ","РљСЃР°СЂРґР°СЃ","Xardas","Diego","Р“РѕСЂРЅ","Р›РµСЃС‚РµСЂ","Lester","Lee","Р›Рё","Gorn","РЎР°С‚СѓСЂР°СЃ","Saturas","Milten"}
+-- Р’ Р»Р°СѓРЅС‡РµСЂРµ СЃ РєРёСЂРёР»Р»РёС†РµР№ Р±РµРґР°, РїРѕСЌС‚РѕРјСѓ РїРѕРєР° С‡С‚Рѕ РєРёРєР°РµРј РІСЃРµС… СЃРѕ Р·РЅР°РєРѕРј РІРѕРїСЂРѕСЃР° РІРјРµСЃС‚Рѕ РЅРёРєР°. + СѓР±РёСЂР°РµРј С†РёС„РµСЂРєРё Рё РІСЃСЏРєРёС… РљСЃР°СЂРґР°СЃРѕРІ, С‚СѓС‚ РІСЃРµ С‚Р°РєРё Р•Р РџР•.
 
 function InitGamemode()
    for i = 0, MaxPlayers - 1 do
@@ -30,7 +30,7 @@ end
 function guiCharacter(playerid)
 		local servernmd = CreateDraw(6500,200 , string.format("%s" , servername) , "Font_Old_10_White_Hi.TGA" ,236 , 236 , 236);
 		ShowDraw(playerid , servernmd);
-		local testowyRysunek = CreateDraw(6500,400 , string.format("%s" , "|Персонаж: ") , "Font_Old_10_White_Hi.TGA" ,236 , 236 , 236);
+		local testowyRysunek = CreateDraw(6500,400 , string.format("%s" , "|РџРµСЂСЃРѕРЅР°Р¶: ") , "Font_Old_10_White_Hi.TGA" ,236 , 236 , 236);
 		ShowDraw(playerid , testowyRysunek);
 		name = GetPlayerName(playerid);
 		local usern = CreateDraw(6500,600 , string.format("%s%s" , "|",name) , "Font_Old_10_White_Hi.TGA" ,236 , 236 , 236);
@@ -39,7 +39,7 @@ function guiCharacter(playerid)
 		local Rysunekid = CreateDraw(6500 , 800 , string.format("%s %d" , "|LVL: " , level), "Font_Old_10_White_Hi.TGA" , 236 , 236 , 236);
 		ShowDraw(playerid , Rysunekid);
 		nxtlvl = GetPlayerExperienceNextLevel(playerid);
-		local instancee = CreateDraw(6500,1000 , string.format("%s %s" , "|Следующий LVL:" , nxtlvl) , "Font_Old_10_White_Hi.TGA" ,236 , 236 , 236);
+		local instancee = CreateDraw(6500,1000 , string.format("%s %s" , "|РЎР»РµРґСѓСЋС‰РёР№ LVL:" , nxtlvl) , "Font_Old_10_White_Hi.TGA" ,236 , 236 , 236);
 		ShowDraw(playerid , instancee);
 		local linee = "|";
 		local line = CreateDraw(6500,1200 , string.format("%s %s" , "|______________________________" , linee) , "Font_Old_10_White_Hi.TGA" ,236 , 236 , 236);
@@ -64,8 +64,8 @@ function OnPlayerConnect(playerid)
 	for i, _badword in ipairs(_badwords) do
 		if IsNPC(playerid) ~= 1 then
 			if string.find(string.lower(GetPlayerName(playerid)), string.lower(_badword)) then
-				SendPlayerMessage(playerid,255,154,100,"(СЕРВЕР): В нике не должно быть цифр и пробелов. Ник должен быть на кириллице.");
-				SendPlayerMessage(playerid,255,154,100,"(СЕРВЕР): А также нельзя использовать имена героев (друзей Глав Героя) из игры");
+				SendPlayerMessage(playerid,255,154,100,"(РЎР•Р Р’Р•Р ): Р’ РЅРёРєРµ РЅРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С†РёС„СЂ Рё РїСЂРѕР±РµР»РѕРІ. РќРёРє РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РЅР° РєРёСЂРёР»Р»РёС†Рµ.");
+				SendPlayerMessage(playerid,255,154,100,"(РЎР•Р Р’Р•Р ): Рђ С‚Р°РєР¶Рµ РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РёРјРµРЅР° РіРµСЂРѕРµРІ (РґСЂСѓР·РµР№ Р“Р»Р°РІ Р“РµСЂРѕСЏ) РёР· РёРіСЂС‹");
 				Kick(playerid);
 			end
 		end
@@ -75,10 +75,10 @@ function OnPlayerConnect(playerid)
         Player[playerid].name = GetPlayerName(playerid);
         local file = io.open("account/"..Player[playerid].name..".par","r+");
         if file then
-                SendPlayerMessage(playerid,230,230,230,"С возвращением. Пожалуйста, залогиньтесь: /лог (пароль)");
+                SendPlayerMessage(playerid,230,230,230,"РЎ РІРѕР·РІСЂР°С‰РµРЅРёРµРј. РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°Р»РѕРіРёРЅСЊС‚РµСЃСЊ: /Р»РѕРі (РїР°СЂРѕР»СЊ)");
                 file:close();
         else
-                SendPlayerMessage(playerid,230,230,230,"Добро пожаловать. Пожалуйста, зарегистрируйтесь: /рег (пароль)");
+                SendPlayerMessage(playerid,230,230,230,"Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ. РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°СЂРµРіРёСЃС‚СЂРёСЂСѓР№С‚РµСЃСЊ: /СЂРµРі (РїР°СЂРѕР»СЊ)");
         end
 end
 
@@ -89,31 +89,31 @@ end
 function OnPlayerCommandText(playerid , cmdtext)
 	local cmd , params = GetCommand(cmdtext);
 
-        if cmd == "/register" or cmd == "/рег" then
+        if cmd == "/register" or cmd == "/СЂРµРі" then
                 if Player[playerid].loggedIn == nil then
                         CMD_Register(playerid,params);
                 else
-                        SendPlayerMessage(playerid,230,230,230,"Вы уже зарегистрированы!");
+                        SendPlayerMessage(playerid,230,230,230,"Р’С‹ СѓР¶Рµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅС‹!");
                 end
-        elseif cmd == "/login" or cmd == "/лог" then
+        elseif cmd == "/login" or cmd == "/Р»РѕРі" then
                 if Player[playerid].loggedIn == nil then
                         CMD_Login(playerid,params);
                 else
-                        SendPlayerMessage(playerid,230,230,230,"Вы уже вошли в аккаунт!");
+                        SendPlayerMessage(playerid,230,230,230,"Р’С‹ СѓР¶Рµ РІРѕС€Р»Рё РІ Р°РєРєР°СѓРЅС‚!");
                 end
-        elseif cmd == "/changepw" or cmd == "/сменитьпароль" then
+        elseif cmd == "/changepw" or cmd == "/СЃРјРµРЅРёС‚СЊРїР°СЂРѕР»СЊ" then
                 if Player[playerid].loggedIn == 1 then
                         CMD_ChangePassword(playerid,params);
                 else
-                        SendPlayerMessage(playerid,230,230,230,"Вам нужно войти в аккаунт!");
+                        SendPlayerMessage(playerid,230,230,230,"Р’Р°Рј РЅСѓР¶РЅРѕ РІРѕР№С‚Рё РІ Р°РєРєР°СѓРЅС‚!");
                 end
         end
 		
-	if cmd == "/b" or cmd == "/о" then
+	if cmd == "/b" or cmd == "/Рѕ" then
 
 	CMD_OOC(playerid , params);
 
-	elseif cmd == "/w" or cmd == "/лс" then
+	elseif cmd == "/w" or cmd == "/Р»СЃ" then
 
 	CMD_PM(playerid , params);
 
@@ -158,16 +158,16 @@ if result == 1 then
 	if IsPlayerConnected(lid) then
 	
 		SendPlayerMessage(lid , 236 , 236 , 236 , string.format("%s : %s" , name , msg));
-		GameTextForPlayer(lid , 3000 , 3000 , "Вы получили сообщение!" , "Font_Old_20_White_Hi.TGA" , 236 , 236 , 236 , 1000);
-		GameTextForPlayer(playerid , 3000 , 3000 , "Сообщение отправлено!" , "Font_Old_20_White_Hi.TGA" , 236 , 236 , 236 , 1000);
+		GameTextForPlayer(lid , 3000 , 3000 , "Р’С‹ РїРѕР»СѓС‡РёР»Рё СЃРѕРѕР±С‰РµРЅРёРµ!" , "Font_Old_20_White_Hi.TGA" , 236 , 236 , 236 , 1000);
+		GameTextForPlayer(playerid , 3000 , 3000 , "РЎРѕРѕР±С‰РµРЅРёРµ РѕС‚РїСЂР°РІР»РµРЅРѕ!" , "Font_Old_20_White_Hi.TGA" , 236 , 236 , 236 , 1000);
 
 	else
-		GameTextForPlayer(playerid , 3000 , 3000 , "Игрок не в сети!" , "Font_Old_20_White_Hi.TGA" , 236 , 236 , 236 , 1000);
+		GameTextForPlayer(playerid , 3000 , 3000 , "РРіСЂРѕРє РЅРµ РІ СЃРµС‚Рё!" , "Font_Old_20_White_Hi.TGA" , 236 , 236 , 236 , 1000);
 	end
 else 
 
-	SendPlayerMessage(playerid, 236 , 236 , 236 , "Неправильный формат сообщения!");
-	SendPlayerMessage(playerid , 236 , 236 , 236 , "Используйте : /лс (ID игрока) (сообщение)");
+	SendPlayerMessage(playerid, 236 , 236 , 236 , "РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ С„РѕСЂРјР°С‚ СЃРѕРѕР±С‰РµРЅРёСЏ!");
+	SendPlayerMessage(playerid , 236 , 236 , 236 , "РСЃРїРѕР»СЊР·СѓР№С‚Рµ : /Р»СЃ (ID РёРіСЂРѕРєР°) (СЃРѕРѕР±С‰РµРЅРёРµ)");
 
 end
 
@@ -178,18 +178,18 @@ function CMD_Register(playerid,params)
         if result == 1 then
                 local fileRead = io.open("account/"..Player[playerid].name..".par","r+");
                 if fileRead then
-                        SendPlayerMessage(playerid,230,230,230,"Аккаунт с таким именем существует! Войдите в него или выберите другое имя!");
+                        SendPlayerMessage(playerid,230,230,230,"РђРєРєР°СѓРЅС‚ СЃ С‚Р°РєРёРј РёРјРµРЅРµРј СЃСѓС‰РµСЃС‚РІСѓРµС‚! Р’РѕР№РґРёС‚Рµ РІ РЅРµРіРѕ РёР»Рё РІС‹Р±РµСЂРёС‚Рµ РґСЂСѓРіРѕРµ РёРјСЏ!");
                         fileRead:close();
                 else
                         Player[playerid].password = password;
                         print(Player[playerid].name.." registered!");
                         WriteDatabase(playerid);
                         Player[playerid].loggedIn = 1;
-                        SendPlayerMessage(playerid,230,230,230,"Вы успешно завершили регистрацию!");
+                        SendPlayerMessage(playerid,230,230,230,"Р’С‹ СѓСЃРїРµС€РЅРѕ Р·Р°РІРµСЂС€РёР»Рё СЂРµРіРёСЃС‚СЂР°С†РёСЋ!");
                         FreezePlayer(playerid,0);
                 end
         else
-                SendPlayerMessage(playerid,230,230,230,"Используйте: /рег (пароль)");
+                SendPlayerMessage(playerid,230,230,230,"РСЃРїРѕР»СЊР·СѓР№С‚Рµ: /СЂРµРі (РїР°СЂРѕР»СЊ)");
         end
 end
 
@@ -205,20 +205,20 @@ function CMD_Login(playerid,params)
                                         Player[playerid].password = password;
                                         ReadDatabase(playerid);
                                         print(Player[playerid].name.." logged in!");
-                                        SendPlayerMessage(playerid,230,230,230,"Вы успешно вошли!");
+                                        SendPlayerMessage(playerid,230,230,230,"Р’С‹ СѓСЃРїРµС€РЅРѕ РІРѕС€Р»Рё!");
                                         Player[playerid].loggedIn = 1;
                                         FreezePlayer(playerid,0);
-										--guiCharacter(playerid); // временно отрублю
+										--guiCharacter(playerid); // РІСЂРµРјРµРЅРЅРѕ РѕС‚СЂСѓР±Р»СЋ
                                 else
-                                        SendPlayerMessage(playerid,230,230,230,"Неправильный пароль!");
+                                        SendPlayerMessage(playerid,230,230,230,"РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РїР°СЂРѕР»СЊ!");
                                 end
                         end
                         file:close();
                 else
-                        SendPlayerMessage(playerid,230,230,230,"Нет аккаунта с таким именем, зарегистрируйтесь: /рег (пароль)");
+                        SendPlayerMessage(playerid,230,230,230,"РќРµС‚ Р°РєРєР°СѓРЅС‚Р° СЃ С‚Р°РєРёРј РёРјРµРЅРµРј, Р·Р°СЂРµРіРёСЃС‚СЂРёСЂСѓР№С‚РµСЃСЊ: /СЂРµРі (РїР°СЂРѕР»СЊ)");
                 end
         else
-                SendPlayerMessage(playerid,230,230,230,"Используйте: /лог (пароль)");
+                SendPlayerMessage(playerid,230,230,230,"РСЃРїРѕР»СЊР·СѓР№С‚Рµ: /Р»РѕРі (РїР°СЂРѕР»СЊ)");
         end
 end
 
@@ -229,12 +229,12 @@ function CMD_ChangePassword(playerid,params)
                         Player[playerid].password = newpw;
                         print(Player[playerid].name.." changed his password!");
                         WriteDatabase(playerid);
-                        SendPlayerMessage(playerid,230,230,230,"Вы сменили пароль!");
+                        SendPlayerMessage(playerid,230,230,230,"Р’С‹ СЃРјРµРЅРёР»Рё РїР°СЂРѕР»СЊ!");
                 else
-                        SendPlayerMessage(playerid,230,230,230,"Вы неправильно ввели свой старый пароль!");
+                        SendPlayerMessage(playerid,230,230,230,"Р’С‹ РЅРµРїСЂР°РІРёР»СЊРЅРѕ РІРІРµР»Рё СЃРІРѕР№ СЃС‚Р°СЂС‹Р№ РїР°СЂРѕР»СЊ!");
                 end
         else
-                SendPlayerMessage(playerid,230,230,230,"Используйте: /сменитьпароль (старый пароль) (новый пароль)");
+                SendPlayerMessage(playerid,230,230,230,"РСЃРїРѕР»СЊР·СѓР№С‚Рµ: /СЃРјРµРЅРёС‚СЊРїР°СЂРѕР»СЊ (СЃС‚Р°СЂС‹Р№ РїР°СЂРѕР»СЊ) (РЅРѕРІС‹Р№ РїР°СЂРѕР»СЊ)");
         end
 end
 
